@@ -19,6 +19,10 @@ sudo kind create cluster --kubeconfig .kube/config --name k8s-rehearse1  --image
 sudo kind create cluster --config kind.yml --kubeconfig .kube/config --name k8s-rehearse2
 ```
 
+```
+sudo kind delete cluster --name k8s-rehearse2
+```
+
 ## My errors
 
 ## Failed to creat cluster
@@ -52,6 +56,7 @@ wsl.exe --shutdown
 
 https://github.com/kubernetes-sigs/kind/issues/2323
 
+Use image `kindest/node:v1.17.17`
 
 ```bash
 sudo kind create cluster --kubeconfig .kube/config --name k8s-rehearse1  --image kindest/node:v1.17.17

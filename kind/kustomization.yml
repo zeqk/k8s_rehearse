@@ -1,0 +1,12 @@
+namespace: actividad-02
+#namePrefix: kustomize
+nameSuffix: "-001"
+spec:
+  template:
+    spec:
+      nodeSelector:
+        rack: tres
+resources:
+  - nginx-pod.yml
+  - mysql-pod.yml
+  - myweb-pod.yml

@@ -5,5 +5,17 @@ nodes:
   image: kindest/node:v1.17.17
 - role: worker
   image: kindest/node:v1.17.17
+  kubeadmConfigPatches:
+  - |
+    kind: JoinConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "rack=uno"
 - role: worker
   image: kindest/node:v1.17.17
+  kubeadmConfigPatches:
+  - |
+    kind: JoinConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "rack=dos"

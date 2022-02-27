@@ -16,11 +16,15 @@ sudo kind create cluster --kubeconfig .kube/config --name k8s-rehearse1  --image
 
 
 ```bash
-sudo kind create cluster --config kind.yml --kubeconfig .kube/config --name k8s-rehearse2
+sudo kind create cluster --config cluster.yml --kubeconfig .kube/config --name k8s-rehearse2
 ```
 
 ```
 sudo kind delete cluster --name k8s-rehearse2
+```
+
+```
+kind export logs
 ```
 
 ## My errors
@@ -60,4 +64,19 @@ Use image `kindest/node:v1.17.17`
 
 ```bash
 sudo kind create cluster --kubeconfig .kube/config --name k8s-rehearse1  --image kindest/node:v1.17.17
+```
+# Mysql
+
+
+```
+kubectl run mysql --image=mysql:5.7 --env="MYSQL_ROOT_PASSWORD=root" --kubeconfig .kube/config
+```
+
+```
+kubectl --kubeconfig .kube/config exec mysql -- mysql -uroot -proot -e "show databases"
+```
+
+
+```
+sudo podman run --rm -it --network host mysql:5.7 mysql --host 127.0.0.1 --port 33060 -proot
 ```
